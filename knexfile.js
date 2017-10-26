@@ -1,9 +1,18 @@
-// Update with your config settings.
+'use strict';
 
 module.exports = {
+  development: {
+    client: 'pg',
+    connection: 'postgres://localhost/messages_dev'
+  },
 
-  development: { },
-  test: { },
-  production: { },
+  test: {
+    client: 'pg',
+    connection: 'postgres://localhost/messages_test'
+  },
 
-};
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL
+  }
+}

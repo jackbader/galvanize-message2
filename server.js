@@ -2,10 +2,16 @@
 
 const express = require('express');
 const app = express();
-
+const bodyParser= require('body-parser')
 const messages = require('./routes/messages');
+app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/messages', messages);
 
-app.use('/messages',messages);
+
+const path = require('path');
+
+app.use(express.static(path.join('public')));
 
 const port = process.env.PORT || 3000;
 

@@ -4,8 +4,10 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,10 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.2.0",
+    "mocha": "^3.5.3",
     "supertest": "^2.0.1"
+  },
+  "engines": {
+    "node": "v8.6.0"
   }
 }
